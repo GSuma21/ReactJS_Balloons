@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import style from "./ColorBalloon.module.css";
+import { v4 as uuidv4 } from "uuid";
 
-export default function ColorBox() {
+
+export default function ColorBalloon() {
   const [colors, setColors] = useState([
     { id: 1, value: "red", key: uuidv4() },
     { id: 2, value: "green", key: uuidv4() },
@@ -12,7 +13,6 @@ export default function ColorBox() {
   ]);
   const [values, setValues] = useState([]);
   const [inputValue, setInputValue] = useState("");
-
   function handleChange(e) {
     setInputValue(e.target.value);
   }
@@ -29,12 +29,11 @@ export default function ColorBox() {
     setColors(colors);
   }
 
-  function handleBack(key, item) {
+  function handleAddBack(key, item) {
     let updated = values.filter((item) => key !== item.key);
     setValues(updated);
     let sample = [...colors, item];
     sample = sample.sort((a, b) => a.id - b.id);
-    
     setColors(sample);
   }
 
@@ -50,7 +49,7 @@ export default function ColorBox() {
                 key={item.key}
                 className={style.roundBoxes}
                 style={{ backgroundColor: item.value }}
-                onClick={() => handleBack(item.key, item)}
+                onClick={() => handleAddBack(item.key, item)}
               ></div>
             );
           })}
@@ -60,7 +59,7 @@ export default function ColorBox() {
             return (
               <div
                 key={item.key}
-                className={style.roundBallons}
+                className={style.roundBoxes}
                 style={{ backgroundColor: item.value }}
               ></div>
             );
@@ -86,3 +85,5 @@ export default function ColorBox() {
     </>
   );
 }
+
+

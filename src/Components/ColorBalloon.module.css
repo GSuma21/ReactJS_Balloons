@@ -5,6 +5,12 @@
     width: 100%;
     display: flex;
   }
+
+  .container > div {
+   
+    width: 50%;
+  }
+  
   
   .left {
     display: flex;
@@ -29,7 +35,7 @@
     height: 100px;
   }
   
-  .roundBallons {
+  .roundBoxes {
     height: 80px;
     width: 80px;
     border: 1px solid rgb(0, 0, 0);
@@ -37,8 +43,4 @@
     margin: 9px;
   }
 
-  .container > div {
-   
-    width: 50%;
-  }
-  
+ 
